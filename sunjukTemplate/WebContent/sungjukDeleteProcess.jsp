@@ -9,10 +9,6 @@
 
 	String hakbun = request.getParameter("hakbun");
 	
-	int kor = Integer.parseInt(request.getParameter("kor"));
-	int eng = Integer.parseInt(request.getParameter("eng"));
-	int math = Integer.parseInt(request.getParameter("math"));
-	
 	Connection conn = null;
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
@@ -31,7 +27,7 @@
 		if(result>0){
 			out.println("<script>");
 			out.println("alert('"+hakbun+"번을 제거 하였습니다.')");
-			out.println("location.href='template.jsp?page=main'");
+			out.println("location.href='template.jsp?page=sungjukDelete'");
 			out.println("</script>");
 		}
 				
