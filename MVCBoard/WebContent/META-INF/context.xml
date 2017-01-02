@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+<!-- name은 web-inf/web.xml에서 사용하므로 동일해야 한다.
+	 auth는 자원관리자 , type 데이터 베이스 관리를 위한 데이터 소스 객체 , factory , maxActive connection 500개까지 접속, Idle상태  connection 100 -->
+	<Resource name="jdbc/OracleDB"
+		auth="Container"
+		type="javax.sql.DataSource"
+		username="scott"
+		password="123456"
+		driverClassName="oracle.jdbc.driver.OracleDriver"
+		factory="org.apache.commons.dbcp.BasicDataSourceFactory"
+		url="jdbc:oracle:thin:@127.0.0.1:1521:orcl"
+		maxActive="500"
+		maxIdle="100"/>
+</Context>
