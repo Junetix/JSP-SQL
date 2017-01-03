@@ -34,7 +34,7 @@ if(listcount>0){
 			<font size=2>글 개수:${listcount }</font>
 		</td>
 	</tr>
-	<tr align=center valign=middle boardercolor="#333333">
+	<tr align=center valign=middle color="#333333">
 		<td style="font-familly:Tahoma;font-size:8pt;" width=8% >
 			<div align=center>번호</div>
 		</td>
@@ -56,7 +56,7 @@ if(listcount>0){
 			BoardBean bl=(BoardBean)boardlist.get(i);
 		
 	%>
-	<tr align="center" valign=middle bordercolor="#333333" onmouseover="this.style.backgroundColor='f8f8f8'" onmouseout="this.style.backgroundColor=''">
+	<tr align="center" valign=middle bordercolor="#333333" onmouseover="this.style.backgroundColor='f8f8f8'" onmouseout="this.style.backgroundColor='f8f8f8'">
 		<td height=23 style="font-family:Tahoma;font-size=10pt;">
 			<%=bl.getBOARD_NUM() %>
 		</td>

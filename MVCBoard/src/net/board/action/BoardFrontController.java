@@ -18,54 +18,55 @@ public class BoardFrontController extends javax.servlet.http.HttpServlet impleme
 		Action action = null;
 		
 		if(command.equals("/BoardWrite.bo")){
-			//forward = new ActionForward();
-			//forward.setRedirect(false);
-			//forward.setPath("./board/qna_board_write.jsp");
-		}else if(command.equals("/BoardReplayAction.bo")){
-			//action = new BoardReplayAction();
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./board/qna_board_write.jsp");
+		}else if(command.equals("/BoardReplyAction.bo")){
+			action = new BoardReplyAction();
 			try{
-			//	forward = action.execute(request, response);
+				forward = action.execute(request, response);
 			}catch(Exception e){
 				e.printStackTrace();
 			}
 		}else if(command.equals("/BoardDelete.bo")){
-			//forward = new ActionForward();
-			//forward.setRedirect(false);
-			//forward.setPath("./board/qna_board_delete.jsp");
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./board/qna_board_delete.jsp");
+			
 		}else if(command.equals("/BoardModify.bo")){
-			//action = new BoardModifyView();
+			action = new BoardModifyView();
 			try{
-			//	forward= action.execute(request, response);
+				forward= action.execute(request, response);
 				
 			}catch(Exception e){
 				e.printStackTrace();
 			}
 			
 		}else if(command.equals("/BoardAddAction.bo")){
-			//action = new BoardAddAction();
+			action = new BoardAddAction();
 			try{
-			//	forward = action.execute(request, response);
+				forward = action.execute(request, response);
 			}catch(Exception e){
 				e.printStackTrace();
 			}
 		}else if(command.equals("/BoardReplyView.bo")){
-			//action = new BoardReplyView();
+			action = new BoardReplyView();
 			try{
-				//forward = action.execute(request, response);
+				forward = action.execute(request, response);
 			}catch(Exception e){
 				e.printStackTrace();
 			}
 		}else if(command.equals("/BoardModifyAction.bo")){
-			//action = new BoardModifyAction();
+			action = new BoardModifyAction();
 			try{
-				//forward = action.execute(request, response);
+				forward = action.execute(request, response);
 			}catch(Exception e){
 				e.printStackTrace();
 			}
 		}else if(command.equals("/BoardDeleteAction.bo")){
-			//action = new BoardDeleteAction();
+			action = new BoardDeleteAction();
 			try{
-				//forward = action.execute(request, response);
+				forward = action.execute(request, response);
 			}catch(Exception e){
 				e.printStackTrace();
 			}
@@ -77,9 +78,9 @@ public class BoardFrontController extends javax.servlet.http.HttpServlet impleme
 				e.printStackTrace();
 			}
 		}else if(command.equals("/BoardDetailAction.bo")){
-			//action = new BoardDetailAction();
+			action = new BoardDetailAction();
 			try{
-				//forward = action.execute(request, response);
+				forward = action.execute(request, response);
 			}catch(Exception e){
 				e.printStackTrace();
 			}

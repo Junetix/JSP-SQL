@@ -237,12 +237,14 @@ public class BoardDAO {
 	}
 	public boolean boardModify(BoardBean modifiyboard)throws Exception{
 		
-		String sql ="UPDATE board SET BOARD_SUBJECT=?.BOARD_CONTENT=? "+
+		String sql ="UPDATE board SET BOARD_SUBJECT=?,BOARD_CONTENT=? "+
 					"WHERE BOARD_NUM=?";
 		try{
+			con = ds.getConnection();
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, modifiyboard.getBOARD_SUBJECT());
 			pstmt.setString(2, modifiyboard.getBOARD_CONTENT());
+			pstmt.setInt(3, modifiyboard.getBOARD_NUM());
 			pstmt.executeUpdate();
 			return true;
 		}catch(Exception ex){
@@ -260,6 +262,7 @@ public class BoardDAO {
 		
 		
 		try{
+			con = ds.getConnection();
 			pstmt=con.prepareStatement(board_delete_sql);
 			pstmt.setInt(1, num);
 			result = pstmt.executeUpdate();
@@ -274,14 +277,18 @@ public class BoardDAO {
 		return false;
 	}
 	//조회수 업데이트
+	
 	public void setReadConutUpdate(int num)throws Exception{
 		String sql = "UPDATE board SET BOARD_READCOUNT = "+
-					"BOARD_READCOUNT+1 WHERE BOARD_NUM =" +num;
+					"BOARD_READCOUNT +1 WHERE BOARD_NUM =" + num;
 		
 		try{
+			con = ds.getConnection();
+			//System.out.println(sql);
 			pstmt=con.prepareStatement(sql);
+			//System.out.println("aaa");
 			pstmt.executeUpdate();
-			
+		//	System.out.println("bbb");
 		}catch(Exception ex){
 			System.out.println("setReadCountUpdate에러 :"+ex);
 
@@ -290,6 +297,7 @@ public class BoardDAO {
 	public boolean isBoardWriter(int num, String pass){
 		String board_sql ="SELECT * FROM BOARD WHERE BOARD_NUM=?";
 		try{
+			con = ds.getConnection();
 			pstmt=con.prepareStatement(board_sql);
 			pstmt.setInt(1, num);
 			rs=pstmt.executeQuery();
